@@ -1,0 +1,17 @@
+<h1>Listing applicants</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+ 
+  <% @applicants.each do |applicant| %>
+    <tr>
+      <td><%= applicant.name %></td>
+      <td><%= applicant.email %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', root_path %>
