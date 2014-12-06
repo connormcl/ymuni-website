@@ -10,10 +10,20 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </p>
+
+  <p>
+  	<%= f.label :password %><br>
+  	<%= f.text_field :password %><br>
+  </p>
+
+  <p>
+  	<%= f.label :password_confirmation %><br>
+  	<%= f.text_field :password_confirmation %><br>
+  </p>
  
   <p>
     <%= f.submit %>
   </p>
 <% end %>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', login_path %>

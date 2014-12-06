@@ -1,4 +1,11 @@
 <h2>YMUNI</h2>
-<%= link_to 'Apply here!', new_applicant_path %><br>
 <%= link_to 'About us', about_path %><br>
 <%= link_to 'View applicants', applicants_path %>
+<% if logged_in? %>
+	<li><%= link_to 'Application Dashboard', '#' %></li>
+	<li><%= link_to 'Settings', '#' %></li>
+	<li><%= link_to 'Profile', current_applicant %></li>
+	<li><%= link_to 'Log out', logout_path, method: :delete %></li>
+	<% else %>
+		<li><%= link_to 'Login', login_path %></li>
+<% end %>
