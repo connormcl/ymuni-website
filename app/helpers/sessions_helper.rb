@@ -1,18 +1,18 @@
 module SessionsHelper
-	def log_in(applicant)
-		session[:applicant_id] = applicant.id
+	def log_in(user)
+		session[:user_id] = user.id
 	end
 
-	def log_out(applicant)
-		session.delete(:applicant_id)
-		@current_applicant = nil
+	def log_out(user)
+		session.delete(:user_id)
+		@current_user = nil
 	end
 
-	def current_applicant
-		@current_applicant ||= Applicant.find_by(id: session[:applicant_id])
+	def current_user
+		@current_user ||= User.find_by(id: session[:user_id])
 	end
 
 	def logged_in?
-		!current_applicant.nil?
+		!current_user.nil?
 	end
 end

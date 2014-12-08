@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	applicant = Applicant.find_by(email: params[:session][:email].downcase)
-    if applicant && applicant.authenticate(params[:session][:password])
+  	user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
     	#login and redirect to app_form page
-    	log_in applicant
-    	redirect_to applicant
+    	log_in user
+    	redirect_to user
     else
     	#display error message
     	flash.now[:error] = 'Invalid email/password combination'
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	log_out @current_applicant
+  	log_out @current_user
   	redirect_to root_path
   end
 end
