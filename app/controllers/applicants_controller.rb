@@ -1,14 +1,16 @@
 class ApplicantsController < ApplicationController
 	def new
+		@applicant = Applicant.new
 	end
 
 	def create
 		@applicant = Applicant.new(applicant_params)
-		#@applicant = Applicant.new(params[:applicant])
-
-		@applicant.save
-		redirect_to @applicant
-		#redirect_to applicants_path
+		if @applicant.save
+			flash.now[:success] = "New applicant successfully created!"
+			redirect_to @applicant
+		else
+			render 'new'
+		end
 	end
 
 	def show
