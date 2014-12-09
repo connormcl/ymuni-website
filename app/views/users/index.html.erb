@@ -10,7 +10,13 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
+      <td>
+        <% if !current_user?(user) %>
+          <%= link_to 'Delete', user, method: :delete, data: { confirm: "You sure?" } %>
+        <% end %>
+      </td>
     </tr>
+    <!--<tr><td><%= link_to 'Delete', user, method: :delete, data: { confirm: "You sure?" } %></td></tr>-->
   <% end %>
 </table>
 

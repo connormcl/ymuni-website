@@ -1,9 +1,13 @@
 <h2>YMUNI</h2>
 <%= link_to 'About us', about_path %><br>
-<%= link_to 'View applicants', users_path %>
 <% if logged_in? %>
-	<li><%= link_to 'Application Dashboard', '#' %></li>
-	<li><%= link_to 'Settings', '#' %></li>
+	<% if admin? %>
+		<li><%= link_to 'Manage applicants', users_path %></li>
+		<li><%= link_to 'Admin Dashboard', '#' %></li>
+		<% else %>
+			<li><%= link_to 'Application Dashboard', '#' %></li>
+	<% end %>
+	<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 	<li><%= link_to 'Profile', current_user %></li>
 	<li><%= link_to 'Log out', logout_path, method: :delete %></li>
 	<% else %>
