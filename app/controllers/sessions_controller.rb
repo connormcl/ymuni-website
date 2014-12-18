@@ -11,13 +11,14 @@ class SessionsController < ApplicationController
     	redirect_back_or root_path
     else
     	#display error message
-    	flash.now[:error] = 'Invalid email/password combination'
-		render 'new'
-	end
+    	flash.now[:danger] = "Invalid email/password combination"
+		  render 'new'
+    end
   end
 
   def destroy
   	log_out @current_user
+    flash[:success] = "Logout successful"
   	redirect_to root_path
   end
 end

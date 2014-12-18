@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			log_in @user
-			flash.now[:success] = "New user successfully created!"
-			redirect_to @user
+			flash[:success] = "New user successfully created!"
+			redirect_to root_path
 		else
 			render 'new'
 		end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
 			flash[:success] = "Profile updated"
-			redirect_to @user
+			redirect_to root_path
 		else
 			render 'edit'
 		end
