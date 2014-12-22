@@ -1,0 +1,33 @@
+<% provide(:title, "YMUNI Application") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>YMUNI Application</h1><br>
+    <h2>Part 3 - Letters of Recommendation</h2>
+
+    <%= form_for([@app.user, @app]) do |f| %>
+        <%= render 'shared/error_messages' %>
+
+        <div class="jumbotron">
+            <h1>Invite a recommender!</h1>
+            <p>Recommendations should be one-page in length, detailing the student’s achievements, strengths and qualities. 
+            Recommendations should come from secondary school teachers.</p><br>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Invite recommender</a></p>
+        </div>
+       
+        <%= f.submit "Save changes", class: 'btn btn-primary' %>
+    <% end %>
+
+    <nav>
+  <ul class="pagination pagination-lg pagination-centered">
+    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+    <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
+    <li><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+    <li class="active"><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+  </ul>
+</nav>
+  </div>
+</div>

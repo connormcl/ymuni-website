@@ -1,0 +1,78 @@
+<% provide(:title, "YMUNI Application") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>YMUNI Application</h1><br>
+    <h2>Part 1 - General Information</h2>
+    <!--<h1><%= params[:page] %></h1>-->
+
+    <%= form_for([@app.user, @app]) do |f| %>
+        <%= render 'shared/error_messages' %>
+
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, class: 'form-control' %><br>
+
+        <%= f.label :middle_name %><br>
+        <%= f.text_field :middle_name, class: 'form-control' %><br>
+
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, class: 'form-control' %><br>
+
+        <%= f.label :address %><br>
+        <%= f.text_field :address, class: 'form-control' %><br>
+
+        <%= f.label :city %><br>
+        <%= f.text_field :city, class: 'form-control' %><br>
+
+        <%= f.label :state %><br>
+        <%= f.text_field :state, class: 'form-control' %><br>
+
+        <%= f.label :zip_code %><br>
+        <%= f.text_field :zip_code, class: 'form-control' %><br>
+
+        <%= f.label :country %><br>
+        <%= f.text_field :country, class: 'form-control' %><br>
+
+        <%= f.label :date_of_birth %><br>
+        <%= f.text_field :date_of_birth, class: 'form-control' %><br>
+
+        <%= f.label :ethnicity %><br>
+        <%= f.text_field :ethnicity, class: 'form-control' %><br>
+
+        <%= f.label :school_name %><br>
+        <%= f.text_field :school_name, class: 'form-control' %><br>
+
+        <%= f.label :school_address %><br>
+        <%= f.text_field :school_address, class: 'form-control' %><br>
+
+        <%= f.label :school_city %><br>
+        <%= f.text_field :school_city, class: 'form-control' %><br>
+
+        <%= f.label :school_state %><br>
+        <%= f.text_field :school_state, class: 'form-control' %><br>
+
+        <%= f.label :school_zip_code %><br>
+        <%= f.text_field :school_zip_code, class: 'form-control' %><br>
+
+        <%= f.label :school_country %><br>
+        <%= f.text_field :school_country, class: 'form-control' %><br>
+
+        <%= f.label :grade_level %><br>
+        <%= f.select :grade_level, ['Sophomore', 'Junior', 'Senior'], {:selected => @app.grade_level}, class: 'form-control' %><br>
+       
+        <%= f.submit "Save changes", class: 'btn btn-primary' %>
+    <% end %>
+
+    <nav>
+  <ul class="pagination pagination-lg pagination-centered">
+    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+    <li class="active"><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %> </li>
+    <li><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+    <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+  </ul>
+</nav>
+  </div>
+</div>

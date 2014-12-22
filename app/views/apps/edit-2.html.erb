@@ -1,0 +1,44 @@
+<% provide(:title, "YMUNI Application") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>YMUNI Application</h1><br>
+    <h2>Part 2 - Essays</h2>
+
+    <%= form_for([@app.user, @app]) do |f| %>
+        <%= render 'shared/error_messages' %>
+
+        <%= f.label :personal_statement %><br>
+        <%= f.text_area :personal_statement, class: 'form-control' %><br>
+
+        <%= f.label :supplemental_question_1 %><br>
+        <%= f.text_area :supplemental_question_1, class: 'form-control' %><br>
+
+        <%= f.label :supplemental_question_2 %><br>
+        <%= f.text_area :supplemental_question_2, class: 'form-control' %><br>
+
+        <%= f.label :supplemental_question_3 %><br>
+        <%= f.text_area :supplemental_question_3, class: 'form-control' %><br>
+
+        <%= f.label :supplemental_question_4 %><br>
+        <%= f.text_area :supplemental_question_4, class: 'form-control' %><br>
+
+        <%= f.label :supplemental_question_5 %><br>
+        <%= f.text_area :supplemental_question_5, class: 'form-control' %><br>
+       
+        <%= f.submit "Save changes", class: 'btn btn-primary' %>
+    <% end %>
+
+    <nav>
+  <ul class="pagination pagination-lg pagination-centered">
+    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+    <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
+    <li class="active"><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+    <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+  </ul>
+</nav>
+  </div>
+</div>

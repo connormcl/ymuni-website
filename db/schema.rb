@@ -11,18 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209060440) do
+ActiveRecord::Schema.define(version: 20141222172223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "apps", force: true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address"
+    t.date     "date_of_birth"
+    t.string   "ethnicity"
+    t.string   "school_name"
+    t.string   "school_address"
+    t.string   "school_city"
+    t.string   "school_state"
+    t.string   "school_zip_code"
+    t.string   "school_country"
+    t.string   "grade_level"
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "personal_statement"
+    t.text     "supplemental_question_1"
+    t.text     "supplemental_question_2"
+    t.text     "supplemental_question_3"
+    t.text     "supplemental_question_4"
+    t.text     "supplemental_question_5"
+  end
+
+  add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.boolean  "admin",           default: false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

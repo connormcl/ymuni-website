@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
     	#login and redirect to app_form page
     	log_in user
-    	flash[:success] = "Welcome back, #{current_user.name}"
+    	flash[:success] = "Welcome back, #{current_user.first_name}"
     	redirect_back_or root_path
     else
     	#display error message

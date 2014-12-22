@@ -7,8 +7,11 @@
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
 
-        <%= f.label :name %><br>
-        <%= f.text_field :name, class: 'form-control' %><br>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, class: 'form-control' %><br>
+
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, class: 'form-control' %><br>
 
         <%= f.label :email %><br>
         <%= f.text_field :email, class: 'form-control' %><br>

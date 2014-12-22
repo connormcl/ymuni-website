@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-    	<%= link_to "YMUNI", about_path, class: 'navbar-brand' %>
+    	<%= link_to "YMUNI", root_path, class: 'navbar-brand' %>
     	<!--<a class="navbar-brand" href="/">YMUNI</a>-->
     </div>
     <div>
@@ -12,7 +12,7 @@
 					<li><%= link_to 'Manage applicants', users_path %></li>
 					<li><%= link_to 'Admin Dashboard', '#' %></li>
 				<% else %>
-					<li><%= link_to 'Application Dashboard', '#' %></li>
+					<li><%= link_to 'Application Dashboard', edit_user_app_path(current_user, current_user.app) %></li>
 				<% end %>
 				<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 				<li><%= link_to 'Profile', current_user %></li>

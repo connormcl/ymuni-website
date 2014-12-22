@@ -1,28 +1,37 @@
-<h1>New Applicant</h1>
-<%= form_for :user, url: users_path do |f| %>
-	<%= render 'shared/error_messages' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>New Applicant</h1>
+    <%= form_for :user, url: users_path do |f| %>
+      <%= render 'shared/error_messages' %>
 
-  	<p>
-    	<%= f.label :name %><br>
-    	<%= f.text_field :name %>
-  	</p>
+      <p>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </p>
+
+      <p>
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </p>
  
-  	<p>
-    	<%= f.label :email %><br>
-    	<%= f.text_field :email %>
-  	</p>
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: 'form-control' %>
+      </p>
 
-  	<p>
-  		<%= f.label :password %><br>
-  		<%= f.password_field :password %><br>
-  	</p>
+      <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: 'form-control' %><br>
+      </p>
 
-  	<p>
-  		<%= f.label :password_confirmation %><br>
-  		<%= f.password_field :password_confirmation %><br>
-  	</p>
+      <p>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation, class: 'form-control' %><br>
+      </p>
  
-  	<p>
-    	<%= f.submit %>
-  	</p>
-<% end %>
+      <p>
+        <%= f.submit "Create account", class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+  </div>
+</div>
