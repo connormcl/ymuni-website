@@ -11,29 +11,36 @@
     </div>
   <div class="col-md-6">
     <h1>YMUNI Application</h1><br>
-    <h2>Part 3 - Letters of Recommendation</h2>
+    <h2>Part 5 - GPA and Scores</h2>
+    <!--<p><%= params %></p>-->
 
     <%= form_for([@app.user, @app]) do |f| %>
         <%= render 'shared/error_messages' %>
 
-        <div class="jumbotron">
-            <h1>Invite a recommender!</h1>
-            <p>Recommendations should be one-page in length, detailing the student’s achievements, strengths and qualities. 
-            Recommendations should come from secondary school teachers.</p><br>
-            <%= f.submit "Invite recommender", class: 'btn btn-primary btn-lg' %>
-            <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Invite recommender</a></p>-->
-        </div>
+        <%= f.label :gpa %><br>
+        <%= f.number_field :gpa, class: 'form-control' %><br>
+
+        <%= f.label :sat_score %><br>
+        <%= f.number_field :sat_score, class: 'form-control' %><br>
+
+        <%= f.label :act_score %><br>
+        <%= f.number_field :act_score, class: 'form-control' %><br>
+
+        <%= f.label :toefl_score %><br>
+        <%= f.number_field :toefl_score, class: 'form-control' %><br>
+
+        <%= f.submit "Save changes", class: 'btn btn-primary' %>
     <% end %>
 
     <nav>
   <ul class="pagination pagination-lg pagination-centered">
-    <li><%= link_to '<<', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+    <li><%= link_to '<<', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
     <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
     <li><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
-    <li class="active"><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+    <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
     <li><%= link_to '4', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
-    <li><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
-    <li><%= link_to '>>', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
+    <li class="active"><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
+    <li><%= link_to '>>', '#' %></li>
   </ul>
 </nav>
   </div>

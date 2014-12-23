@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222172223) do
+ActiveRecord::Schema.define(version: 20141222223545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20141222172223) do
     t.text     "supplemental_question_3"
     t.text     "supplemental_question_4"
     t.text     "supplemental_question_5"
+    t.float    "gpa"
+    t.integer  "sat_score"
+    t.integer  "act_score"
+    t.integer  "toefl_score"
   end
 
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree

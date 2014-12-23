@@ -1,20 +1,116 @@
 <% provide(:title, "YMUNI Application") %>
 
 <div class="row">
-    <div class="col-md-3">
+    <!--<div class="col-md-3">
         <h3>Quick links:</h3>
         <%= link_to 'General Information', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')), class: 'btn btn-default btn-block' %>
         <%= link_to 'Essays', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')), class: 'btn btn-default btn-block' %>
         <%= link_to 'Letters of Recommendation', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')), class: 'btn btn-default btn-block' %>
         <%= link_to 'Resume', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')), class: 'btn btn-default btn-block' %>
         <%= link_to 'GPA and Test Scores', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')), class: 'btn btn-default btn-block' %>
-    </div>
-  <div class="col-md-6">
+    </div>-->
+  <div class="col-md-6 col-md-offset-3">
+  	<%= render 'shared/error_messages' %>
+
     <h1>YMUNI Application</h1><br>
+    <h2>Part 1 - General Information</h2>
+    <p>
+		<strong>First name:</strong>
+		<%= @app.first_name %>
+	</p>
+	<p>
+		<strong>Middle name:</strong>
+		<%= @app.middle_name %>
+	</p>
+	<p>
+		<strong>Last name:</strong>
+		<%= @app.last_name %>
+	</p>
+	<p>
+		<strong>Address:</strong>
+		<%= @app.address %>
+	</p>
+	<p>
+		<strong>City:</strong>
+		<%= @app.city %>
+	</p>
+	<p>
+		<strong>State:</strong>
+		<%= @app.state %>
+	</p>
+	<p>
+		<strong>Zip Code:</strong>
+		<%= @app.zip_code %>
+	</p>
+	<p>
+		<strong>Country:</strong>
+		<%= @app.country %>
+	</p>
+	<p>
+		<strong>Date of Birth:</strong>
+		<%= @app.date_of_birth %>
+	</p>
+	<p>
+		<strong>Ethnicity:</strong>
+		<%= @app.ethnicity %>
+	</p>
+	<p>
+		<strong>School Name:</strong>
+		<%= @app.school_name %>
+	</p>
+	<p>
+		<strong>School Address:</strong>
+		<%= @app.school_address %>
+	</p>
+	<p>
+		<strong>School City:</strong>
+		<%= @app.school_city %>
+	</p>
+	<p>
+		<strong>School State:</strong>
+		<%= @app.school_state %>
+	</p>
+	<p>
+		<strong>School Zip Code:</strong>
+		<%= @app.school_zip_code %>
+	</p>
+	<p>
+		<strong>School Country:</strong>
+		<%= @app.school_country %>
+	</p>
+	<p>
+		<strong>Grade Level:</strong>
+		<%= @app.grade_level %>
+	</p>
+    <h2>Part 2 - Essays</h2>
+    <p>
+		<strong>Personal Statement:</strong>
+		<%= @app.personal_statement %>
+	</p>
+	<p>
+		<strong>Supplemental Question 1:</strong>
+		<%= @app.supplemental_question_1 %>
+	</p>
+	<p>
+		<strong>Supplemental Question 2:</strong>
+		<%= @app.supplemental_question_2 %>
+	</p>
+	<p>
+		<strong>Supplemental Question 3:</strong>
+		<%= @app.supplemental_question_3 %>
+	</p>
+	<p>
+		<strong>Supplemental Question 4:</strong>
+		<%= @app.supplemental_question_4 %>
+	</p>
+	<p>
+		<strong>Supplemental Question 5:</strong>
+		<%= @app.supplemental_question_5 %>
+	</p>
     <h2>Part 3 - Letters of Recommendation</h2>
 
-    <%= form_for([@app.user, @app]) do |f| %>
-        <%= render 'shared/error_messages' %>
+    <!--<%= form_for([@app.user, @app]) do |f| %>-->
+        
 
         <div class="jumbotron">
             <h1>Invite a recommender!</h1>
@@ -25,7 +121,7 @@
         </div>
     <% end %>
 
-    <nav>
+    <!--<nav>
   <ul class="pagination pagination-lg pagination-centered">
     <li><%= link_to '<<', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
     <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
@@ -35,6 +131,6 @@
     <li><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
     <li><%= link_to '>>', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
   </ul>
-</nav>
+</nav>-->
   </div>
 </div>

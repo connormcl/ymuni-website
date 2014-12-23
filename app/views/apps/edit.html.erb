@@ -1,9 +1,18 @@
 <% provide(:title, "YMUNI Application") %>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-3">
+        <h3>Quick links:</h3>
+        <%= link_to 'General Information', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')), class: 'btn btn-default btn-block' %>
+        <%= link_to 'Essays', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')), class: 'btn btn-default btn-block' %>
+        <%= link_to 'Letters of Recommendation', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')), class: 'btn btn-default btn-block' %>
+        <%= link_to 'Resume', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')), class: 'btn btn-default btn-block' %>
+        <%= link_to 'GPA and Test Scores', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')), class: 'btn btn-default btn-block' %>
+    </div>
+  <div class="col-md-6" > <!--col-md-offset-3">-->
     <h1>YMUNI Application</h1><br>
     <h2>Part 1 - General Information</h2>
+    <!--<p><%= params %></p>-->
     <!--<h1><%= params[:page] %></h1>-->
 
     <%= form_for([@app.user, @app]) do |f| %>
@@ -34,7 +43,7 @@
         <%= f.text_field :country, class: 'form-control' %><br>
 
         <%= f.label :date_of_birth %><br>
-        <%= f.text_field :date_of_birth, class: 'form-control' %><br>
+        <%= f.date_select :date_of_birth, :start_year => 1996, class: 'form-control' %><br>
 
         <%= f.label :ethnicity %><br>
         <%= f.text_field :ethnicity, class: 'form-control' %><br>
@@ -64,15 +73,15 @@
     <% end %>
 
     <nav>
-  <ul class="pagination pagination-lg pagination-centered">
-    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-    <li class="active"><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %> </li>
-    <li><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
-    <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
-  </ul>
-</nav>
+        <ul class="pagination pagination-lg pagination-centered">
+        <li><%= link_to '<<', '#' %></li>
+        <li class="active"><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %> </li>
+        <li><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+        <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+        <li><%= link_to '4', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
+        <li><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
+        <li><%= link_to '>>', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+        </ul>
+    </nav>
   </div>
 </div>
