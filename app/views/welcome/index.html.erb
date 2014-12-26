@@ -1,107 +1,61 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <h1 class="text-center">Welcome to Yale Model United Nations Institute 2015</h1><br>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+  	<div class="col-md-8 col-md-offset-2">
+	    <h1 class="text-center">Welcome to Yale Model United Nations Institute 2015</h1><br>
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  	<!-- Indicators -->
+	  		<ol class="carousel-indicators">
+		    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    	<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    	<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	  		</ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= image_tag 'yale-campus-1200x550.jpg', class: 'tales' %>
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag 'yale17.jpg', class: 'tales' %>
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag 'Beinecke.jpg', class: 'tales' %>
-      <div class="carousel-caption">
-      </div>
-    </div>
-  </div>
+	  	<!-- Wrapper for slides -->
+	  	<div class="carousel-inner" role="listbox">
+	    	<div class="item active">
+	      		<%= image_tag 'yale-campus-1200x550.jpg', class: 'tales' %>
+	      	<div class="carousel-caption">
+	    	</div>
+	    	</div>
+	    	<div class="item">
+	      		<%= image_tag 'yale17.jpg', class: 'tales' %>
+	      	<div class="carousel-caption">
+	      	</div>
+	    	</div>
+	    	<div class="item">
+	      		<%= image_tag 'Beinecke.jpg', class: 'tales' %>
+	      	<div class="carousel-caption">
+	      	</div>
+	    	</div>
+	  	</div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+	  	<!-- Controls -->
+	  	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    	<span class="sr-only">Previous</span>
+	  	</a>
+	  	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    	<span class="sr-only">Next</span>
+	  	</a>
+		</div>
+
+		
+		<div class="jumbotron">
+			<h1 class="text-center">Letter from the Executive Director</h1>
+			<p>Welcome</p>
+
+			<p>It is with deep pleasure that I welcome you to the official website of YMUNI 2015. The Yale Model United Nations Institute is the newest constituent program of the Yale International Relations Association (YIRA). The Yale International Relations Association is known for running some of the world’s best high school Model United Nations conferences -- from New Haven, to China, to Taipei, to Seoul, and to Budapest. Over the course of history, we have educated thousands of students from around the world. We seek to expand our educational impact. We now introduce to you the Yale Model United Nations Institute (YMUNI 2015).</p>
+
+			<p>YMUNI will serve as YIRA’s premiere summer program about international relations, leadership and Model United Nations right here in New Haven. The program is entirely designed and run by Yale students themselves, who are all deeply committed to the world, education, and the power of Model United Nations.</p>
+
+			<p>We invite you to join YMUNI 2015 for a number of reasons: to learn more about the world, to experience Yale, to polish your MUN and debate skills. But most of all, we invite to you join YMUNI 2015 to challenge yourself to become the best student, scholar and leader you can possibly be.</p>
+
+			<p>Welcome to the Yale Model United Nations Institute, YIRA’s newest program. We’ll see you in New Haven.</p>
+
+			<p>Sincerely,</p>
+			<p>Hannah Gonzales<br>
+			Executive Director, YMUNI 2015</p>
+		</div>
+  	</div>
 </div>
-</div>
-</div>
 
-<!--<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to 'About us', about_path, class: 'btn btn-primary' %></li>
-  	<% if logged_in? %>
-		<% if admin? %>
-			<li><%= link_to 'Manage applicants', users_path, class: 'btn btn-default' %></li>
-			<li><%= link_to 'Admin Dashboard', '#', class: 'btn btn-default' %></li>
-		<% else %>
-			<li><%= link_to 'Application Dashboard', '#', class: 'btn btn-default' %></li>
-		<% end %>
-		<li><%= link_to "Settings", edit_user_path(current_user), class: 'btn btn-default' %></li>
-		<li><%= link_to 'Profile', current_user, class: 'btn btn-default' %></li>
-		<li><%= link_to 'Log out', logout_path, method: :delete, class: 'btn btn-default' %></li>
-	<% else %>
-		<li><%= link_to 'Login', login_path, class: 'btn btn-default' %></li>
-	<% end %>
-</ul>-->
-
-<!-- <div id="main-container" class="container-fluid">
-    <div class="row">
-		<% if logged_in? %>
-			<% if admin? %>
-				<div class="col-xs-2">
-					<%= link_to 'About us', about_path, class: 'btn btn-primary' %>
-				</div>
-				<div class="col-xs-2">
-					<%= link_to 'Manage applicants', users_path, class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-2">
-					<%= link_to 'Admin Dashboard', '#', class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-2">
-					<%= link_to "Settings", edit_user_path(current_user), class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-2">
-					<%= link_to 'Profile', current_user, class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-2">
-					<%= link_to 'Log out', logout_path, method: :delete, class: 'btn btn-default' %>
-				</div>
-			<% else %>
-				<div class="col-xs-3">
-					<%= link_to 'About us', about_path, class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-3">
-					<%= link_to "Settings", edit_user_path(current_user), class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-3">
-					<%= link_to 'Profile', current_user, class: 'btn btn-default' %>
-				</div>
-				<div class="col-xs-3">
-					<%= link_to 'Log out', logout_path, method: :delete, class: 'btn btn-default' %>
-				</div>
-				<%= link_to 'Application Dashboard', '#', class: 'btn btn-default' %>
-			<% end %>
-		<% else %>
-			<div class="col-xs-6">
-				<%= link_to 'About us', about_path, class: 'btn btn-default' %>
-			</div>
-			<div class="col-xs-6">
-				<%= link_to 'Login', login_path, class: 'btn btn-default' %>
-			</div>
-		<% end %>    	
-    </div>
- </div>-->
