@@ -17,21 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#grad /*.row,*/ /*.navbar.navbar-default, .error_explanation*/ {
-    /* background-color: #b0c4de;
-    darker blue: #000066 */
-
-    /* For Safari 5.1 to 6.0 */
-    /* For Opera 11.1 to 12.0 */
-    /* For Firefox 3.6 to 15 */
-    /* Standard syntax (must be last) */
-
-    /*background: -webkit-linear-gradient(white, #000066);
-    background: -o-linear-gradient(white, #000066); 
-    background: -moz-linear-gradient(white, #000066); 
-    background: linear-gradient(white, #000066); */
-}
-
 .navbar-brand,
 .navbar-nav li a {
     line-height: 50px;
@@ -47,8 +32,9 @@
       display: inline-block;
       font-size: 150%;
     }
-  }
-header {
+}
+
+header, table {
   background-color: white;
 }
 

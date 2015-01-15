@@ -26,6 +26,7 @@
                         <li><%= link_to 'FAQ', faq_path %></li>
                     </ul>
                 </li>
+                <li><%= link_to 'Our Team', team_path %></li>
           			<% if logged_in? %>
             				<% if admin? %>
               					<li><%= link_to 'Manage applicants', users_path %></li>
@@ -34,10 +35,9 @@
             				    <li><%= link_to 'Application Dashboard', edit_user_app_path(current_user, current_user.app) %></li>
             				<% end %>
             				<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-            				<li><%= link_to 'Profile', current_user %></li>
+            				<!--<li><%= link_to 'Profile', current_user %></li>-->
             				<li><%= link_to 'Log out', logout_path, method: :delete %></li>
         			 <% else %>
-                            <li><%= link_to 'Our Team', team_path %></li>
                             <li><%= link_to 'Apply', apply_path %></li>
         		            <li><%= link_to 'Login', login_path %></li>
         			 <% end %>
