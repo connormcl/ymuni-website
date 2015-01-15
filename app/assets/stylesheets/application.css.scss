@@ -34,8 +34,8 @@
 
 .navbar-brand,
 .navbar-nav li a {
-    line-height: 74px;
-    height: 74px;
+    line-height: 50px;
+    height: 50px;
     padding-top: 0;
 }
 
@@ -45,9 +45,12 @@
     > li {
       float: none;
       display: inline-block;
-      font-size: 200%;
+      font-size: 150%;
     }
   }
+header {
+  background-color: white;
+}
 
 body {
     padding-top: 0px; /* Whatever the height of your navbar is; the
