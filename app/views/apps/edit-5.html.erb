@@ -1,15 +1,8 @@
 <% provide(:title, "YMUNI Application") %>
 
 <div class="row" id="grad">
-    <div class="col-md-3">
-        <h3>Quick links:</h3>
-        <%= link_to 'General Information', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Essays', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Letters of Recommendation', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Resume', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'GPA and Test Scores', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')), class: 'btn btn-default btn-block' %>
-    </div>
-  <div class="col-md-6">
+    <%= render 'shared/quick_links' %>
+    
     <h1>YMUNI Application</h1><br>
     <h2>Part 5 - GPA and Scores</h2>
     <!--<p><%= params %></p>-->

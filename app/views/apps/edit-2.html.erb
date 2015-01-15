@@ -1,52 +1,48 @@
 <% provide(:title, "YMUNI Application") %>
 
 <div class="row" id="grad">
-    <div class="col-md-3">
-        <h3>Quick links:</h3>
-        <%= link_to 'General Information', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Essays', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Letters of Recommendation', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'Resume', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')), class: 'btn btn-default btn-block' %>
-        <%= link_to 'GPA and Test Scores', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')), class: 'btn btn-default btn-block' %>
+    <%= render 'shared/quick_links' %>
+
+    <div class="col-md-6" > <!--col-md-offset-3">-->
+        <h1 id="white-text">YMUNI Application</h1><br>
+
+        <div class="jumbotron">
+            <h2>Part 2 - Essays</h2><br>
+
+            <%= form_for([@app.user, @app]) do |f| %>
+                <%= render 'shared/error_messages' %>
+
+                <%= f.label :personal_statement %><br>
+                <%= f.text_area :personal_statement, class: 'form-control' %><br>
+
+                <%= f.label :supplemental_question_1 %><br>
+                <%= f.text_area :supplemental_question_1, class: 'form-control' %><br>
+
+                <%= f.label :supplemental_question_2 %><br>
+                <%= f.text_area :supplemental_question_2, class: 'form-control' %><br>
+
+                <%= f.label :supplemental_question_3 %><br>
+                <%= f.text_area :supplemental_question_3, class: 'form-control' %><br>
+
+                <%= f.label :supplemental_question_4 %><br>
+                <%= f.text_area :supplemental_question_4, class: 'form-control' %><br>
+
+                <%= f.label :supplemental_question_5 %><br>
+                <%= f.text_area :supplemental_question_5, class: 'form-control' %><br>
+               
+                <%= f.submit "Save changes", class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+        <nav>
+          <ul class="pagination pagination-lg pagination-centered">
+            <li><%= link_to '<<', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
+            <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
+            <li class="active"><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+            <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+            <li><%= link_to '4', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
+            <li><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
+            <li><%= link_to '>>', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
+          </ul>
+        </nav>
     </div>
-  <div class="col-md-6">
-    <h1>YMUNI Application</h1><br>
-    <h2>Part 2 - Essays</h2>
-
-    <%= form_for([@app.user, @app]) do |f| %>
-        <%= render 'shared/error_messages' %>
-
-        <%= f.label :personal_statement %><br>
-        <%= f.text_area :personal_statement, class: 'form-control' %><br>
-
-        <%= f.label :supplemental_question_1 %><br>
-        <%= f.text_area :supplemental_question_1, class: 'form-control' %><br>
-
-        <%= f.label :supplemental_question_2 %><br>
-        <%= f.text_area :supplemental_question_2, class: 'form-control' %><br>
-
-        <%= f.label :supplemental_question_3 %><br>
-        <%= f.text_area :supplemental_question_3, class: 'form-control' %><br>
-
-        <%= f.label :supplemental_question_4 %><br>
-        <%= f.text_area :supplemental_question_4, class: 'form-control' %><br>
-
-        <%= f.label :supplemental_question_5 %><br>
-        <%= f.text_area :supplemental_question_5, class: 'form-control' %><br>
-       
-        <%= f.submit "Save changes", class: 'btn btn-primary' %>
-    <% end %>
-
-    <nav>
-  <ul class="pagination pagination-lg pagination-centered">
-    <li><%= link_to '<<', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
-    <li><%= link_to '1', edit_user_app_path(current_user, current_user.app, params.merge(:page => '1')) %></li>
-    <li class="active"><%= link_to '2', edit_user_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
-    <li><%= link_to '3', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
-    <li><%= link_to '4', edit_user_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
-    <li><%= link_to '5', edit_user_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
-    <li><%= link_to '>>', edit_user_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
-  </ul>
-</nav>
-  </div>
 </div>

@@ -1,6 +1,44 @@
 <div class="row" id="grad">
   <div class="col-md-6 col-md-offset-3">
-    <h1>New Applicant</h1>
+
+    <div class="jumbotron">
+      <h1>New Applicant</h1><br>
+
+      <%= form_for :user, url: users_path do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <p>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </p>
+
+      <p>
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </p>
+ 
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: 'form-control' %>
+      </p>
+
+      <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: 'form-control' %>
+      </p>
+
+      <p>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation, class: 'form-control' %><br>
+      </p>
+ 
+      <p>
+        <%= f.submit "Create account", class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+    </div>
+
+    <!--<h1>New Applicant</h1>
     <%= form_for :user, url: users_path do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -32,6 +70,6 @@
       <p>
         <%= f.submit "Create account", class: 'btn btn-primary' %>
       </p>
-    <% end %>
+    <% end %>-->
   </div>
 </div>
