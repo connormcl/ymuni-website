@@ -24,7 +24,8 @@
             <h2>Part 1 - General Information</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
-                <%= render 'shared/error_messages' %>
+                <%= hidden_field_tag 'page', params[:page] %>
+                <%= render 'shared/app_error_messages' %>
 
                 <%= f.label :first_name %><br>
                 <%= f.text_field :first_name, class: 'form-control' %><br>
@@ -76,6 +77,9 @@
 
                 <%= f.label :grade_level %><br>
                 <%= f.select :grade_level, ['Sophomore', 'Junior', 'Senior'], {:selected => @app.grade_level}, class: 'form-control' %><br>
+
+                <%= f.label :phone_number %>
+                <%= f.text_field :phone_number, class: 'form-control' %><br>
                
                 <%= f.submit "Save changes", class: 'btn btn-primary' %>
             <% end %>

@@ -10,7 +10,8 @@
             <h2>Part 5 - GPA and Scores</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
-                <%= render 'shared/error_messages' %>
+                <%= hidden_field_tag 'page', params[:page] %>
+                <%= render 'shared/app_error_messages' %>
 
                 <%= f.label :gpa %><br>
                 <%= f.number_field :gpa, class: 'form-control' %><br>

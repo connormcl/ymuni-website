@@ -10,25 +10,32 @@
             <h2>Part 2 - Essays</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
-                <%= render 'shared/error_messages' %>
+                <%= render 'shared/app_error_messages' %>
 
-                <%= f.label :personal_statement %><br>
-                <%= f.text_area :personal_statement, class: 'form-control' %><br>
+                <%= f.label :personal_statement %> (500-750 words)<br>
+                <%= f.text_area :personal_statement, class: 'form-control', :size => "30x10" %><br>
 
-                <%= f.label :supplemental_question_1 %><br>
-                <%= f.text_area :supplemental_question_1, class: 'form-control' %><br>
+                <p class="thick", id="normal-text-size">Please limit answers to supplemental questions to 250-500 words</p>
+
+                <%= f.label :supplemental_question_1 %><br> 
+                <p id="normal-text-size">Why do you want to participate in YMUNI 2015?</p>
+                <%= f.text_area :supplemental_question_1, class: 'form-control', :size => "30x10" %><br>
 
                 <%= f.label :supplemental_question_2 %><br>
-                <%= f.text_area :supplemental_question_2, class: 'form-control' %><br>
+                <p id="normal-text-size">Please talk about your previous MUN experience. If you have no previous MUN experience, please talk about another similar activity.</p>
+                <%= f.text_area :supplemental_question_2, class: 'form-control', :size => "30x10" %><br>
 
                 <%= f.label :supplemental_question_3 %><br>
-                <%= f.text_area :supplemental_question_3, class: 'form-control' %><br>
+                <p id="normal-text-size">Tell us about a leadership experience that has been important to your development.</p>
+                <%= f.text_area :supplemental_question_3, class: 'form-control', :size => "30x10" %><br>
 
                 <%= f.label :supplemental_question_4 %><br>
-                <%= f.text_area :supplemental_question_4, class: 'form-control' %><br>
+                <p id="normal-text-size">Tell us about the community you come from and how that has impacted your worldview.</p>
+                <%= f.text_area :supplemental_question_4, class: 'form-control', :size => "30x10" %><br>
 
                 <%= f.label :supplemental_question_5 %><br>
-                <%= f.text_area :supplemental_question_5, class: 'form-control' %><br>
+                <p id="normal-text-size">What do you like to do during your free time?</p>
+                <%= f.text_area :supplemental_question_5, class: 'form-control', :size => "30x10" %><br>
                
                 <%= f.submit "Save changes", class: 'btn btn-primary' %>
             <% end %>

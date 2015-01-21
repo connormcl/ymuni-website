@@ -25,6 +25,7 @@ class AppsController < ApplicationController
 	def update
 		@user = current_user
 		@app = @user.app
+		
 		if @app.update_attributes(app_params)
 			if params[:app][:resume]
 				uploaded_io = params[:app][:resume]
@@ -39,7 +40,17 @@ class AppsController < ApplicationController
 			#redirect_to edit_user_app_path(current_user, current_user.app, params.merge(:page => params[:page]))
 			redirect_to :back
 		else
-			render 'edit'
+			if params[:page] == '2'
+				render 'edit-2'
+			elsif params[:page] == '3'
+				render 'edit-3'
+			elsif params[:page] == '4'
+				render 'edit-4'
+			elsif params[:page] == '5'
+				render 'edit-5'
+			else
+				render 'edit'
+			end
 		end
 	end
 
