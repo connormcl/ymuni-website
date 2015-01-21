@@ -1,0 +1,2 @@
+class MultiPageFormController < ApplicationController
+end
