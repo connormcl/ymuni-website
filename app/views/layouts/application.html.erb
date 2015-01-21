@@ -12,12 +12,49 @@
   	</div>
 </header>
 <body>
-	<%= render 'shared/navigation' %>
+	<div id="wrap">
+		<%= render 'shared/navigation' %>
 
-	<% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-<%= yield %>
+		<% flash.each do |message_type, message| %>
+	        <div class="alert alert-<%= message_type %>"><%= message %></div>
+	    <% end %>
+
+		<%= yield %>
+
+		<div id="push"></div>
+	</div>
+	
+
+	<!--<div id="footer">
+      <div class="container">
+        <h5>YMUNI 2015</h5>
+        <p>August 2-8, 2015</p>
+        <p>Yale University, New Haven, CT</p>
+      </div>
+    </div>-->
+
+    <div id="footer">
+    	<div class="row">
+    		<div class="col-md-2"></div>
+  			<div class="col-md-2">
+		      	<h4>YMUNI 2015</h4>
+		        <p>August 2-8, 2015</p>
+		        <p>Yale University, New Haven, CT</p>
+		    </div>
+		    <div class="col-md-2">
+		      	<h4>Apply now!</h4>
+		        <p><%= link_to "Create an account", signup_path %> and <%= link_to 'apply', apply_path %> today.</p>
+		    </div>
+		    <div class="col-md-2">
+		      	<h4>Connect</h4>
+		        <p><%= mail_to "ymuni@yira.org" %></p>
+		    </div>
+		    <div class="col-md-2">
+		      	<h4>YIRA</h4>
+		        <p><%= link_to "yira.org", "http://www.yira.org" %></p>
+		    </div>
+		</div>
+    </div>
 
 </body>
 </html>
