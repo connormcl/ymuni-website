@@ -10,6 +10,7 @@
             <h2>Part 3 - Letters of Recommendation</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
+                <%= hidden_field_tag 'page', params[:page] %>
                 <%= render 'shared/app_error_messages' %>
 
                 <div class="jumbotron">

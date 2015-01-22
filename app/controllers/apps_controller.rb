@@ -25,6 +25,7 @@ class AppsController < ApplicationController
 	def update
 		@user = current_user
 		@app = @user.app
+		@app.page = params[:page]
 		
 		if @app.update_attributes(app_params)
 			if params[:app][:resume]
@@ -38,19 +39,19 @@ class AppsController < ApplicationController
 			flash[:success] = "Application updated"
 			#redirect_to edit_user_app_path(current_user, current_user.app)
 			#redirect_to edit_user_app_path(current_user, current_user.app, params.merge(:page => params[:page]))
-			redirect_to :back
+			#redirect_to :back
+		end
+
+		if params[:page] == '2'
+			render 'edit-2'
+		elsif params[:page] == '3'
+			render 'edit-3'
+		elsif params[:page] == '4'
+			render 'edit-4'
+		elsif params[:page] == '5'
+			render 'edit-5'
 		else
-			if params[:page] == '2'
-				render 'edit-2'
-			elsif params[:page] == '3'
-				render 'edit-3'
-			elsif params[:page] == '4'
-				render 'edit-4'
-			elsif params[:page] == '5'
-				render 'edit-5'
-			else
-				render 'edit'
-			end
+			render 'edit'
 		end
 	end
 

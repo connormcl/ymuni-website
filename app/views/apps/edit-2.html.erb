@@ -10,6 +10,7 @@
             <h2>Part 2 - Essays</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
+                <%= hidden_field_tag 'page', params[:page] %>
                 <%= render 'shared/app_error_messages' %>
 
                 <%= f.label :personal_statement %> (500-750 words)<br>
