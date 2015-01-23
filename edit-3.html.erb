@@ -11,17 +11,19 @@
 
             <%= form_for(:recommender, url: recommenders_path) do |f| %>
                 <%= hidden_field_tag 'page', params[:page] %>
-                <%= render 'shared/error_messages' %>
-                <%= render 'shared/recommender_error_messages' %>
+                <%= render 'shared/app_error_messages' %>
 
-                <h1>Invite a recommender!</h1>
-                <p>Recommendations should be one-page in length, detailing the student’s achievements, strengths and qualities. 
-                Recommendations should come from secondary school teachers.</p><br>
+                <div class="jumbotron">
+                    <h1>Invite a recommender!</h1>
+                    <p>Recommendations should be one-page in length, detailing the student’s achievements, strengths and qualities. 
+                    Recommendations should come from secondary school teachers.</p><br>
 
-                <%= f.label :email %><br>
-                <%= f.text_field :email, class: 'form-control' %><br>
+                    <%= f.label :email %><br>
+                    <%= f.text_field :email, class: 'form-control' %><br>
 
-                <%= f.submit "Invite recommender", class: 'btn btn-primary btn-lg' %>
+                    <%= f.submit "Invite recommender", class: 'btn btn-primary btn-lg' %>
+                    <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Invite recommender</a></p>-->
+                </div>
             <% end %>
         </div>
 

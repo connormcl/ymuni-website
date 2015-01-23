@@ -7,17 +7,15 @@
         <h1 id="white-text">YMUNI Application</h1><br>
 
         <div class="jumbotron">
-            <h2>Part 4 - Resume</h2>
+            <h2>Part 4 - Resume</h2><br>
 
             <%= form_for([@app.user, @app]) do |f| %>
                 <%= hidden_field_tag 'page', params[:page] %>
                 <%= render 'shared/app_error_messages' %>
-                <div class="jumbotron">
-                    <h3>Upload your resume</h3><br>
+                <h3>Upload your resume</h3><br>
 
-                    <%= f.file_field :resume %>
-                </div>
-               
+                <%= f.file_field :resume %><br>
+            
                 <%= f.submit "Save changes", class: 'btn btn-primary' %>
             <% end %>
         </div> 

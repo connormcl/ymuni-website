@@ -1,5 +1,6 @@
 class App < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :recommender
 
 	attr_accessor :page
 
@@ -24,7 +25,7 @@ class App < ActiveRecord::Base
 	#validates :grade_level #, presence: true, length: {maximum: 50}, :if => :page_one?
 	#validates :email, presence: true, length: {maximum: 50}
 	VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
-	validates :phone_number, presence: true, allow_blank: true, length: {maximum: 50}, format: { with: VALID_PHONE_REGEX}, :if => :page_one?
+	validates :phone_number, presence: true, length: {maximum: 50}, format: { with: VALID_PHONE_REGEX}, :if => :page_one?
 	# validates :personal_statement, length: {maximum: 750}, :if => :page_two?   #, length: {in: 500..750}
 	# validates :supplemental_question_1, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
 	# validates :supplemental_question_2, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}

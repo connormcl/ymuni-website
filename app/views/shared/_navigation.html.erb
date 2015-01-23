@@ -31,7 +31,9 @@
             				<% if admin? %>
               					<li id="yale-new-roman"><%= link_to 'Manage applicants', users_path %></li>
               					<li id="yale-new-roman"><%= link_to 'Admin Dashboard', '#' %></li>
-            				<% else %>
+            				<% elsif current_user.type == 'Recommender' %>
+                                <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', '#' %></li>
+                            <% else %>
             				    <li id="yale-new-roman"><%= link_to 'Application Dashboard', edit_user_app_path(current_user, current_user.app) %></li>
             				<% end %>
             				<li id="yale-new-roman"><%= link_to "Settings", edit_user_path(current_user) %></li>

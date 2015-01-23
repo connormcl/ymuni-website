@@ -11,6 +11,7 @@ class AppsController < ApplicationController
 	def edit
 		@user = current_user #User.find(params[:id])
 		@app = @user.app
+		@recommender = Recommender.new
 		if params[:page] == '2'
 			render 'edit-2'
 		elsif params[:page] == '3'
@@ -32,7 +33,9 @@ class AppsController < ApplicationController
 				uploaded_io = params[:app][:resume]
 				#File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
 				#File.open(Rails.root.join('public', 'uploads', "#{params[:user_id]}.#{params[:id]}resume"), 'wb') do |file|
-				File.open(Rails.root.join('public', 'uploads', "#{params[:user_id]}-#{uploaded_io.original_filename}"), 'wb') do |file|
+				#directory_name = "/public/uploads/#{params[:user_id]}"
+				#Dir.mkdir(directory_name) unless File.exists?(directory_name)
+				File.open(Rails.root.join('public', 'uploads', "#{params[:user_id]}", "#{params[:user_id]}-#{uploaded_io.original_filename}"), 'wb') do |file|
   					file.write(uploaded_io.read)
   				end
   			end
@@ -60,7 +63,7 @@ class AppsController < ApplicationController
 			params.require(:app).permit(:first_name, :middle_name, :last_name, :address, :city, :state, :zip_code, :country, :date_of_birth, 
 				:ethnicity, :school_name, :school_address, :school_city, :school_state, :school_zip_code, :school_country, :grade_level, :email, :phone_number,
 				:personal_statement, :supplemental_question_1, :supplemental_question_2, :supplemental_question_3, :supplemental_question_4,
-				:supplemental_question_5, :gpa, :sat_score, :act_score, :toefl_score)
+				:supplemental_question_5, :gpa, :sat_score, :act_score, :toefl_score, :recommender_email)
 		end
 
 		def logged_in_user
