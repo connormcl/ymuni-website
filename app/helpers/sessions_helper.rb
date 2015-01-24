@@ -10,6 +10,21 @@ module SessionsHelper
 
 	def current_user
 		@current_user ||= User.find_by(id: session[:user_id])
+
+		# if((@current_user != nil) && (@current_user.type == 'Applicant'))
+		# 	@current_user ||= User.find_by(id: session[:user_id])
+		# else
+		# 	@current_user = nil
+		# end
+
+		# if((@current_user != nil) && (@current_user.type == 'Applicant'))
+		# 	@current_user = Applicant.find_by(id: session[:user_id])
+		# end
+		if((@current_user != nil) && (@current_user.type == 'Applicant'))
+			@current_user ||= Applicant.find_by(id: session[:user_id])
+		else
+			@current_user ||= User.find_by(id: session[:user_id])
+		end
 	end
 
 	def current_user?(user)

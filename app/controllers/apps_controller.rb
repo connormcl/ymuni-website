@@ -4,7 +4,7 @@ class AppsController < ApplicationController
 	before_action :admin_user, only: [:index, :destroy, :show]
 
 	def show
-		@user = User.find(params[:user_id])
+		@user = Applicant.find(params[:applicant_id])
 		@app = @user.app
 	end
 
@@ -75,7 +75,7 @@ class AppsController < ApplicationController
 		end
 
 		def correct_user
-			@user = User.find(params[:user_id])
+			@user = User.find(params[:applicant_id])
 			redirect_to root_path unless current_user?(@user)
 		end
 

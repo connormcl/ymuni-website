@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	attr_accessor :page
 
-	has_one :app
 	before_save { self.email = email.downcase }
 	validates :first_name, presence: true, length: { maximum: 25 }#, :if => :page_not_three?
 	validates :last_name, presence: true, length: { maximum: 25 }#, :if => :page_not_three?

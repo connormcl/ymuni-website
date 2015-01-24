@@ -1,3 +1,3 @@
 class Recommender < User
-	has_many :apps
+	has_many :applicants
 end

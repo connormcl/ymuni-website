@@ -10,13 +10,17 @@ Rails.application.routes.draw do
   get 'financial' => 'welcome#financial'
   get 'faq' => 'welcome#faq'
   get 'apply' => 'welcome#apply'
-  get 'signup' => 'users#new'
+  get 'signup' => 'applicants#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'users/:user_id/apps/:id/edit/:page' => 'apps#edit'
 
-  resources :users do
+  get 'recommender_dashboard' => 'recommenders#index_applicants'
+
+  resources :users
+
+  resources :applicants do
     resources :apps
   end
 

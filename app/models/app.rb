@@ -1,6 +1,5 @@
 class App < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :recommender
+	belongs_to :applicant
 
 	attr_accessor :page
 

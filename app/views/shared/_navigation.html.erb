@@ -29,12 +29,12 @@
                 <li id="yale-new-roman"><%= link_to 'Our Team', team_path %></li>
           			<% if logged_in? %>
             				<% if admin? %>
-              					<li id="yale-new-roman"><%= link_to 'Manage applicants', users_path %></li>
+              					<li id="yale-new-roman"><%= link_to 'Manage applicants', applicants_path %></li>
               					<li id="yale-new-roman"><%= link_to 'Admin Dashboard', '#' %></li>
             				<% elsif current_user.type == 'Recommender' %>
-                                <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', '#' %></li>
+                                <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', recommender_dashboard_path %></li>
                             <% else %>
-            				    <li id="yale-new-roman"><%= link_to 'Application Dashboard', edit_user_app_path(current_user, current_user.app) %></li>
+            				    <li id="yale-new-roman"><%= link_to 'Application Dashboard', edit_applicant_app_path(current_user, current_user.app) %></li>
             				<% end %>
             				<li id="yale-new-roman"><%= link_to "Settings", edit_user_path(current_user) %></li>
             				<!--<li id="yale-new-roman"><%= link_to 'Profile', current_user %></li>-->

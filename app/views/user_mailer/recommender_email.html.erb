@@ -4,13 +4,23 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.first_name %></h1>
+    <h1>Welcome, <%= @recommender.first_name %>!</h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.email %>.<br>
+      <%= @applicant.first_name %> has invited you to write him/her a recommendation.
+    </p>
+    <p>
+      Your recommender account has been successfuly created.<br><br>
+      Your username is: <%= @recommender.email %>.<br>
+      And your temporary password is: <%= @recommender.password %><br>
     </p>
     <p>
       To login to the site, just follow this link: <%= link_to 'Login', login_path %>.
+    </p>
+    <p>
+      Once logged in, you can follow this link to change your password: <%= link_to 'Settings', edit_user_path(@recommender) %>
+    </p>
+    <p>
+      To submit your recommendation, simply follow the instructions in your <%= link_to 'Recommender Dashboard', '#' %>
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>

@@ -11,4 +11,4 @@ User.create!(first_name:  "Connor",
              email: "connor.mclaughlin@yale.edu",
              password:              "password",
              password_confirmation: "password",
-             admin: true).app = App.create( :first_name => "Connor" )
+             admin: true)#.app = App.create( :first_name => "Connor" )
