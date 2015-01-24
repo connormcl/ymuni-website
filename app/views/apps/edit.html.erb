@@ -73,12 +73,12 @@
     <nav>
         <ul class="pagination pagination-lg pagination-centered">
         <li><%= link_to '<<', '#' %></li>
-        <li class="active"><%= link_to '1', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '1')) %> </li>
-        <li><%= link_to '2', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
-        <li><%= link_to '3', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '3')) %></li>
-        <li><%= link_to '4', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '4')) %></li>
-        <li><%= link_to '5', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '5')) %></li>
-        <li><%= link_to '>>', edit_applicant_app_path(current_user, current_user.app, params.merge(:page => '2')) %></li>
+        <li class="active"><%= link_to '1', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '1'}) %> </li>
+        <li><%= link_to '2', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '2'}) %></li>
+        <li><%= link_to '3', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '3'}) %></li>
+        <li><%= link_to '4', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'}) %></li>
+        <li><%= link_to '5', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '5'}) %></li>
+        <li><%= link_to '>>', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '2'}) %></li>
         </ul>
     </nav>
   </div>

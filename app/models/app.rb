@@ -11,7 +11,7 @@ class App < ActiveRecord::Base
 	validates :state, presence: true, length: { maximum: 25 }, :if => :page_one?
 	validates :zip_code, presence: true, length: { maximum: 10 }, :if => :page_one?
 	validates :country, presence: true, length: {maximum: 50}, :if => :page_one?
-	#validates :date_of_birth #, presence: true, length: {maximum: 50}, :if => :page_one?
+	# validates :date_of_birth #, presence: true, length: {maximum: 50}, :if => :page_one?
 
 
 	validates :ethnicity, presence: true, length: {maximum: 25}, :if => :page_one?
@@ -21,21 +21,61 @@ class App < ActiveRecord::Base
 	validates :school_state, presence: true, length: {maximum: 25}, :if => :page_one?
 	validates :school_zip_code, presence: true, length: {maximum: 10}, :if => :page_one?
 	validates :school_country, presence: true, length: {maximum: 50}, :if => :page_one?
-	#validates :grade_level #, presence: true, length: {maximum: 50}, :if => :page_one?
+	# validates :grade_level #, presence: true, length: {maximum: 50}, :if => :page_one?
 	#validates :email, presence: true, length: {maximum: 50}
 	VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 	validates :phone_number, presence: true, length: {maximum: 50}, format: { with: VALID_PHONE_REGEX}, :if => :page_one?
-	# validates :personal_statement, length: {maximum: 750}, :if => :page_two?   #, length: {in: 500..750}
-	# validates :supplemental_question_1, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
+	validates :personal_statement, :length => {
+	    :minimum   => 0,
+	    :maximum   => 750,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
+	validates :supplemental_question_1, :length => {
+	    :minimum   => 0,
+	    :maximum   => 500,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
+  	validates :supplemental_question_2, :length => {
+	    :minimum   => 0,
+	    :maximum   => 500,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
+  	validates :supplemental_question_3, :length => {
+	    :minimum   => 0,
+	    :maximum   => 500,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
+  	validates :supplemental_question_4, :length => {
+	    :minimum   => 0,
+	    :maximum   => 500,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
+  	validates :supplemental_question_5, :length => {
+	    :minimum   => 0,
+	    :maximum   => 500,
+	    :tokenizer => lambda { |str| str.split(" ") },
+	    :too_short => "must have at least %{count} words",
+	    :too_long  => "cannot have more than %{count} words"
+  	}, :if => :page_two?
 	# validates :supplemental_question_2, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
 	# validates :supplemental_question_3, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
 	# validates :supplemental_question_4, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
 	# validates :supplemental_question_5, length: {maximum: 500}, :if => :page_two?   #, length: {in: 250..500}
 
-	validate :supplemental_question_1_word_count, :supplemental_question_2_word_count, :supplemental_question_3_word_count,
-			 :supplemental_question_4_word_count, :supplemental_question_5_word_count, :if => :page_two?
+	# validate :supplemental_question_1_word_count, :supplemental_question_2_word_count, :supplemental_question_3_word_count,
+	# 		 :supplemental_question_4_word_count, :supplemental_question_5_word_count, :if => :page_two?
 
-	validates :gpa, allow_blank: true, numericality: { only_integer: false, greater_than_or_equal_to: 0, less_than_or_equal_to: 4.0 }, :if => :page_five? 
+	validates :gpa, allow_blank: true, numericality: { only_integer: false, greater_than_or_equal_to: 0, less_than_or_equal_to: 4.0 }, :if => :page_five?
 	validates :sat_score, allow_blank: true, numericality: { only_integer: true, greater_than_or_equal_to: 200, less_than_or_equal_to: 2400 }, :if => :page_five?
 	validates :act_score, allow_blank: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 36 }, :if => :page_five?
 	validates :toefl_score, allow_blank: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 120 }, :if => :page_five?
@@ -58,7 +98,7 @@ class App < ActiveRecord::Base
 	end
 
 	def personal_statement_word_count
-		if personal_statement.split(" "). length > 750
+		if personal_statement.split(" ").length > 50
 			errors.add(:personal_statement, "must be 750 words or less")
 		end
 	end
