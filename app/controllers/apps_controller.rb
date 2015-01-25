@@ -11,10 +11,15 @@ class AppsController < ApplicationController
 	def edit
 		@user = current_user #User.find(params[:id])
 		@app = @user.app
-		@recommender = Recommender.new
 		if params[:page] == '2'
 			render 'edit-2'
 		elsif params[:page] == '3'
+			@recommender = Recommender.new
+			if Recommender.find_by(:id => @user.recommender_id) != nil
+				@recommender = Recommender.find_by(:id => @user.recommender_id)
+			else
+				@recommender = Recommender.new
+			end
 			render 'edit-3'
 		elsif params[:page] == '4'
 			render 'edit-4'

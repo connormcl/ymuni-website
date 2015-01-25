@@ -22,13 +22,28 @@ class ApplicantsController < ApplicationController
 		@user = Applicant.find(params[:id])
 	end
 
+	def update
+		@user = Applicant.find(params[:id])
+		#@user.resume = params[:resume]
+		if @user.update_attributes(user_params)
+			if @user.resume != nil
+				flash[:success] = "Resume uploaded"
+			else
+				flash[:success] = "Profile updated"
+			end
+			redirect_to edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'})
+		else
+			render 'edit'
+		end
+	end
+
 	def index
 		@applicants = Applicant.all
 	end
 
 	private
 		def user_params
-			params.require(:applicant).permit(:first_name, :last_name, :email, :password, :password_confirmation, :recommender_id)
+			params.require(:applicant).permit(:first_name, :last_name, :email, :password, :password_confirmation, :resume)
 		end
 
 		def logged_in_user

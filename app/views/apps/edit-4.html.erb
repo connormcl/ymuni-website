@@ -8,14 +8,20 @@
         <h2 id="white-text">Part 4 - Resume</h2><br>
 
         <div class="jumbotron">
-            <%= form_for([@user, @app]) do |f| %>
+            <%= form_for(@user) do |f| %>
                 <%= hidden_field_tag 'page', params[:page] %>
                 <%= render 'shared/app_error_messages' %>
-                <h3>Upload your resume</h3><br>
+                <h2>Upload your resume</h2><br>
 
-                <%= f.file_field :resume %><br>
+                <p>
+                    <% if @user.resume.path != nil %>
+                        Uploaded file: <%= File.basename(@user.resume.path) %><br><br>
+                    <% end %>
+                    <%= f.file_field :resume %>
+                    <%= f.hidden_field :resume_cache %>
+                </p>
             
-                <%= f.submit "Save changes", class: 'btn btn-primary' %>
+                <%= f.submit "Upload", class: 'btn btn-primary' %>
             <% end %>
         </div> 
 
