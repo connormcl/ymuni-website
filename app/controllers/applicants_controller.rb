@@ -41,6 +41,12 @@ class ApplicantsController < ApplicationController
 		@applicants = Applicant.all
 	end
 
+	def destroy
+		Applicant.find(params[:id]).destroy
+    	flash[:success] = "Applicant deleted"
+    	redirect_to applicants_path
+    end
+
 	private
 		def user_params
 			params.require(:applicant).permit(:first_name, :last_name, :email, :password, :password_confirmation, :resume)
