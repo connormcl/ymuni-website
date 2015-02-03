@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <header>
-	<div class="row text-center">
+	<%= render 'shared/navigation' %>
+
+	<div class="row text-center" id="ymuni-header">
   		<%= image_tag 'Logo.jpg' %>
   	</div>
 </header>
 <body>
+	<br>
 	<div id="wrap">
-		<%= render 'shared/navigation' %>
-
 		<% flash.each do |message_type, message| %>
 	        <div class="alert alert-<%= message_type %>"><%= message %></div>
 	    <% end %>
