@@ -22,18 +22,61 @@ class ApplicantsController < ApplicationController
 		@user = Applicant.find(params[:id])
 	end
 
+	# def update
+	# 	@user = Applicant.find(params[:id])
+	# 	#@user.resume = params[:resume]
+	# 	if @user.update_attributes(user_params)
+	# 		if @user.resume != nil
+	# 			flash[:success] = "Resume uploaded"
+	# 		else
+	# 			flash[:success] = "Profile updated"
+	# 		end
+	# 		redirect_to edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'})
+	# 	else
+	# 		render 'edit'
+	# 	end
+	# end
+
+	# def update
+	# 	@user = Applicant.find(params[:id])
+	# 	#@user.resume = params[:resume]
+	# 	if @user.update_attributes(user_params)
+	# 		if @user.recommendation != nil
+	# 			flash[:success] = "Recommendation uploaded"
+	# 		else
+	# 			flash[:success] = "Profile updated"
+	# 		end
+	# 		redirect_to recommender_dashboard_path
+	# 	else
+	# 		redirect_to recommender_dashboard_path
+	# 	end
+	# end
+
 	def update
 		@user = Applicant.find(params[:id])
 		#@user.resume = params[:resume]
-		if @user.update_attributes(user_params)
-			if @user.resume != nil
-				flash[:success] = "Resume uploaded"
+		if current_user.type == 'Applicant'
+			if @user.update_attributes(user_params)
+				if @user.resume != nil
+					flash[:success] = "Resume uploaded"
+				else
+					flash[:success] = "Profile updated"
+				end
+				redirect_to edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'})
 			else
-				flash[:success] = "Profile updated"
+				render 'edit'
 			end
-			redirect_to edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'})
 		else
-			render 'edit'
+			if @user.update_attributes(user_params)
+				if @user.recommendation != nil
+					flash[:success] = "Recommendation uploaded"	
+				else
+					flash[:danger] = "Failed to upload recommendation"
+				end
+			else
+				flash[:danger] = "Failed to upload recommendation"
+			end
+			redirect_to recommender_dashboard_path
 		end
 	end
 
@@ -49,7 +92,7 @@ class ApplicantsController < ApplicationController
 
 	private
 		def user_params
-			params.require(:applicant).permit(:first_name, :last_name, :email, :password, :password_confirmation, :resume)
+			params.require(:applicant).permit(:first_name, :last_name, :email, :password, :password_confirmation, :resume, :recommendation)
 		end
 
 		def logged_in_user
