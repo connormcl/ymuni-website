@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'users/:user_id/apps/:id/edit/:page' => 'apps#edit'
 
   get 'recommender_dashboard' => 'recommenders#index_applicants'
+  get 'users/reset-password' => 'users#reset_password_form'
+  post 'users/reset-password' => 'users#reset_password'
 
   resources :users
 

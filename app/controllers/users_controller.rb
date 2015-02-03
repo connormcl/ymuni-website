@@ -50,6 +50,28 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def reset_password_form
+	end
+
+	def reset_password
+		#email = params[:email]
+		@user = User.find_by({:email => params[:user][:email]})
+		if @user != nil
+			o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
+			random_password = (0...8).map { o[rand(o.length)] }.join
+			@user.update_attributes({:password => random_password, :password_confirmation => random_password})
+			#@user.password = random_password
+			#@user.password_confirmation = random_password
+
+			UserMailer.reset_password_email(@user).deliver
+			flash[:success] = "Password reset email sent"
+		else
+			flash[:danger] = "Invalid email address"
+		end
+
+		redirect_to users_reset_password_path
+	end
+
 	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

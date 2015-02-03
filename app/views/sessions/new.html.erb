@@ -17,7 +17,8 @@
     <% end %>
 
     <br>
-    <p>New user? <%= link_to "Sign up now!", signup_path %>
+    <p>New user? <%= link_to "Sign up now!", signup_path %><br>
+    <p>Forget your password? <%= link_to "Reset it here", users_reset_password_path %></p>
     </div>
     <!--<h1>Log in</h1>
     <%= form_for(:session, url: login_path) do |f| %>
