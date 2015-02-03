@@ -11,7 +11,7 @@ class ApplicantsController < ApplicationController
 			@user.app = @app
 			log_in @user
 			flash[:success] = "New user successfully created!"
-			UserMailer.welcome_email(@user).deliver
+			UserMailer.welcome_email(@user, @app).deliver
 			redirect_to root_path
 		else
 			render 'new'

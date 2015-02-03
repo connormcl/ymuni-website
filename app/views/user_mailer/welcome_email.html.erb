@@ -3,20 +3,18 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <header>
-    <div class="row text-center">
-        <%= image_tag 'Logo.jpg' %>
-    </div>
-  </header>
   <body>
     <h1>Welcome to YMUNI, <%= @user.first_name %></h1>
     <p>
-      You have successfully signed up to ymuni.yira.org,
-      your username is: <%= @user.email %>.<br>
+      You have successfully created your Yale Model United Nations Institute account.
+      Your username is: <%= @user.email %>.<br>
     </p>
     <p>
-      To login to the site, just follow this link: <%= link_to 'Login', login_url %>.
+      To begin working on your application, just click <%= link_to 'here', edit_applicant_app_url(@user, @app) %>!
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>
+      To login to the site, just click <%= link_to 'here', login_url %>.
+    </p>
+    <p>Thanks for joining and good luck on your application!</p>
   </body>
 </html>

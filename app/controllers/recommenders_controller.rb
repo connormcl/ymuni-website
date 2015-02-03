@@ -1,4 +1,6 @@
 class RecommendersController < ApplicationController
+	before_action :logged_in_user, only: [:index_applicants]
+
 	def new
 		@recommender = Recommender.new
 	end
@@ -44,5 +46,13 @@ class RecommendersController < ApplicationController
 	private
 		def recommender_params
 			params.require(:recommender).permit(:email, :first_name, :last_name, :password, :password_confirmation, :applicant_id)
+		end
+
+		def logged_in_user
+			unless logged_in?
+				store_location
+				flash[:danger] = "Please log in."
+				redirect_to login_path
+			end
 		end
 end

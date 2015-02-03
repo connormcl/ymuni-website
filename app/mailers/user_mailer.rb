@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
   default from: "tech.ymuni@yira.org"
 
-  def welcome_email(user)
+  def welcome_email(user, app)
     @user = user
+    @app = app
     mail(to: @user.email, subject: 'Welcome to Yale Model United Nations Institute')
   end
 
