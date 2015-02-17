@@ -60,8 +60,13 @@ body {
   color: white;
 }
 
-p.thick {
-    font-weight: bold;
+p.thick, h1.thick, h2.thick, h3.thick {
+  font-weight: bold;
+}
+
+p.thick-italic, h1.thick-italic, h2.thick-italic, h3.thick-italic {
+  font-weight: bold;
+  font-style: italic;
 }
 
 #normal-text-size {

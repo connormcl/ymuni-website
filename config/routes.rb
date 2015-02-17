@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'users/:user_id/apps/:id/edit/:page' => 'apps#edit'
 
+  get 'join_our_team' => 'welcome#join_our_team'
   get 'recommender_dashboard' => 'recommenders#index_applicants'
   get 'users/reset-password' => 'users#reset_password_form'
   post 'users/reset-password' => 'users#reset_password'

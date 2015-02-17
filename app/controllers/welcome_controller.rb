@@ -22,4 +22,7 @@ class WelcomeController < ApplicationController
 
 	def apply
 	end
+
+	def join_our_team
+	end
 end

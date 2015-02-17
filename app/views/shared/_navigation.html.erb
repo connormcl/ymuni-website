@@ -38,8 +38,10 @@
             				<% end %>
             				<li id="yale-new-roman"><%= link_to "Settings", edit_user_path(current_user) %></li>
             				<!--<li id="yale-new-roman"><%= link_to 'Profile', current_user %></li>-->
+                            <li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>
             				<li id="yale-new-roman"><%= link_to 'Log out', logout_path, method: :delete %></li>
         			 <% else %>
+                            <li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>
                             <li id="yale-new-roman"><%= link_to 'Apply', apply_path %></li>
         		            <li id="yale-new-roman"><%= link_to 'Login', login_path %></li>
         			 <% end %>
