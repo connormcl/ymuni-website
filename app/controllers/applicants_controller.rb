@@ -1,4 +1,6 @@
 class ApplicantsController < ApplicationController
+	before_action :admin_user, only: [:index, :destroy]
+	
 	def new
 		@user = Applicant.new
 	end
