@@ -13,6 +13,11 @@ class UserMailer < ActionMailer::Base
   	mail(to: @recommender.email, subject: 'Yale Model United Nations Institute Recommendation')
   end
 
+  def admin_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Your Admin Account Has Been Created')
+  end
+
   def reset_password_email(user)
     @user = user
     mail(to: @user.email, subject: 'YMUNI Password Reset')

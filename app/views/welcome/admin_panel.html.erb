@@ -1,0 +1,49 @@
+<% provide(:title, "YMUNI Application") %>
+
+<div class="row" id="grad">
+    <div class="col-md-8 col-md-offset-1">
+        <h1 id="white-text">Admin Dashboard</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-md-offset-1">
+        <h1 id="white-text">Invite an Administrator</h1>
+
+        <div class="jumbotron">
+            <%= form_for(:user, url: create_admin_path) do |f| %>
+                
+                <%= f.label :first_name %><br>
+                <%= f.text_field :first_name, class: 'form-control' %><br>
+
+                <%= f.label :last_name %><br>
+                <%= f.text_field :last_name, class: 'form-control' %><br>
+
+                <%= f.label :email %><br>
+                <%= f.text_field :email, class: 'form-control' %><br>
+
+                <%= f.submit "Invite admin", class: 'btn btn-primary btn-lg' %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-md-offset-1">
+        <h1 id="white-text">Listing Administrators</h1>
+
+        <table class="table table-hover table-condensed">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+          </tr>
+         
+          <% @users.each do |user| %>
+              <tr>
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email %></td>
+              </tr>
+          <% end %>
+        </table>
+    </div>
+</div>

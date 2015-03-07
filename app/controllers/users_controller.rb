@@ -22,6 +22,24 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def create_admin
+		@user = User.new(user_params);
+		o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
+		random_password = (0...8).map { o[rand(o.length)] }.join
+		@user.password = random_password
+		@user.password_confirmation = random_password
+		@user.admin = true
+
+		if @user.save
+			UserMailer.admin_email(@user).deliver
+			flash[:success] = "Invitation email sent to recommender"
+		else
+			flash[:danger] = "Invalid email address"
+		end
+
+		redirect_to admin_panel_path
+	end
+
 	def show
 		@user = User.find(params[:id])
 	end

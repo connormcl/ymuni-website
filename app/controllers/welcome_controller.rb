@@ -25,4 +25,8 @@ class WelcomeController < ApplicationController
 
 	def join_our_team
 	end
+
+	def admin_panel
+		@users = User.where(:admin => true)
+	end
 end

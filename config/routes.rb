@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'users/reset-password' => 'users#reset_password_form'
   post 'users/reset-password' => 'users#reset_password'
 
+  get 'admin_panel' => 'welcome#admin_panel'
+  post 'create_admin' => 'users#create_admin'
+
   resources :users
 
   resources :applicants do

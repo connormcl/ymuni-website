@@ -30,7 +30,7 @@
           			<% if logged_in? %>
             				<% if admin? %>
               					<li id="yale-new-roman"><%= link_to 'Manage applicants', applicants_path %></li>
-              					<li id="yale-new-roman"><%= link_to 'Admin Dashboard', '#' %></li>
+              					<li id="yale-new-roman"><%= link_to 'Admin Dashboard', admin_panel_path %></li>
             				<% elsif current_user.type == 'Recommender' %>
                                 <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', recommender_dashboard_path %></li>
                             <% else %>
