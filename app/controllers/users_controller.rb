@@ -40,6 +40,32 @@ class UsersController < ApplicationController
 		redirect_to admin_panel_path
 	end
 
+	def email_all
+		if params[:user][:applicants].to_i == 1
+			@applicants = Applicant.all
+			@applicants.each do |applicant|
+				UserMailer.all_email(applicant, params[:user][:title],
+					params[:user][:message]).deliver
+			end
+		end
+		if params[:user][:administrators].to_i == 1
+			@admins = User.where(:admin => true)
+			@admins.each do |admin|
+				UserMailer.all_email(admin, params[:user][:title],
+					params[:user][:message]).deliver
+			end
+		end
+		if params[:user][:recommenders].to_i == 1
+			@recommenders = Recommender.all
+			@recommenders.each do |recommender|
+				UserMailer.all_email(recommender, params[:user][:title],
+					params[:user][:message]).deliver
+			end
+		end
+		flash[:success] = "Email sent to all selected parties!"
+		redirect_to admin_panel_path
+	end
+
 	def show
 		@user = User.find(params[:id])
 	end

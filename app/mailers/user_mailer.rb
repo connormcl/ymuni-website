@@ -23,9 +23,9 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'YMUNI Password Reset')
   end
 
-  def all_applicants_email(applicant, title, email_body)
+  def all_email(user, title, email_body)
     @body = email_body
-    mail(to: applicant.email,
+    mail(to: user.email,
          body: email_body,
          subject: title)
   end

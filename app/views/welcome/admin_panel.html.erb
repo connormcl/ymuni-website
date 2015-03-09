@@ -50,11 +50,26 @@
 
 <div class="row">
     <div class="col-md-5 col-md-offset-1">
-        <h1 id="white-text">Send an email to all Applicants</h1>
+        <h1 id="white-text">Send an email to all:</h1>
 
         <div class="jumbotron">
-            <%= form_for(:applicant, url: applicants_email_all_path, method: :post) do |f| %>
+            <%= form_for(:user, url: users_email_all_path, method: :post) do |f| %>
+                <%= f.label :applicants, class: 'checkbox' do %>
+                    <%= f.check_box :applicants %>
+                    Applicants
+                <% end %>
 
+                <%= f.label :administrators, class: 'checkbox' do %>
+                    <%= f.check_box :administrators %>
+                    Administrators
+                <% end %>
+
+                <%= f.label :recommenders, class: 'checkbox' do %>
+                    <%= f.check_box :recommenders %>
+                    Recommenders
+                <% end %>
+
+                <br>
                 <%= f.label :title %><br>
                 <%= f.text_field :title, class: 'form-control' %><br>
                 

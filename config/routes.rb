@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get 'admin_panel' => 'welcome#admin_panel'
   post 'create_admin' => 'users#create_admin'
-  post 'applicants/email_all' => 'applicants#email_all'
+  post 'users/email_all' => 'users#email_all'
   post 'submit' => 'apps#submit'
 
   resources :users
