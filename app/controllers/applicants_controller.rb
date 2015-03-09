@@ -24,6 +24,16 @@ class ApplicantsController < ApplicationController
 		@user = Applicant.find(params[:id])
 	end
 
+	def email_all
+		@applicants = Applicant.all
+		@applicants.each do |applicant|
+			UserMailer.all_applicants_email(applicant, params[:applicant][:title],
+				params[:applicant][:message]).deliver
+		end
+		flash[:success] = "Email sent to all applicants!"
+		redirect_to admin_panel_path
+	end
+
 	# def update
 	# 	@user = Applicant.find(params[:id])
 	# 	#@user.resume = params[:resume]
