@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'users/:user_id/apps/:id/edit/:page' => 'apps#edit'
+  get 'applicants/:user_id/apps/:id/status' => 'apps#status', as: 'app_status'
 
   get 'join_our_team' => 'welcome#join_our_team'
   get 'recommender_dashboard' => 'recommenders#index_applicants'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   get 'admin_panel' => 'welcome#admin_panel'
   post 'create_admin' => 'users#create_admin'
   post 'applicants/email_all' => 'applicants#email_all'
+  post 'submit' => 'apps#submit'
 
   resources :users
 

@@ -34,7 +34,11 @@
             				<% elsif current_user.type == 'Recommender' %>
                                 <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', recommender_dashboard_path %></li>
                             <% else %>
-            				    <li id="yale-new-roman"><%= link_to 'Application Dashboard', edit_applicant_app_path(current_user, current_user.app) %></li>
+                                <% if current_user.app.submitted? == false %>
+                				    <li id="yale-new-roman"><%= link_to 'Application Dashboard', edit_applicant_app_path(current_user, current_user.app) %></li>
+                                <% else %>
+                                    <li id="yale-new-roman"><%= link_to 'Application Status', app_status_path(current_user, current_user.app) %></li>
+                                <% end %>
             				<% end %>
             				<li id="yale-new-roman"><%= link_to "Settings", edit_user_path(current_user) %></li>
             				<!--<li id="yale-new-roman"><%= link_to 'Profile', current_user %></li>-->

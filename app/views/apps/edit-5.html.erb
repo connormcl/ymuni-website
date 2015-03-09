@@ -28,6 +28,8 @@
             <% end %>
         </div>
 
+    <%= link_to("Submit Application", submit_path, method: :post, data: { confirm: "Are you sure you want to submit your application?" }, class: 'btn btn-primary') %>
+
     <nav>
       <ul class="pagination pagination-lg pagination-centered">
         <li><%= link_to '<<', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'}) %></li>

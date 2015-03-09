@@ -2,6 +2,8 @@ class AppsController < ApplicationController
 	before_action :logged_in_user, only: [:edit, :update, :show, :index]
 	before_action :correct_user, only: [:edit, :update]
 	before_action :admin_user, only: [:index, :destroy, :show]
+	before_action :submitted, only: [:edit, :update]
+	before_action :not_submitted, only: [:status]
 
 	def show
 		@user = Applicant.find(params[:applicant_id])
@@ -26,6 +28,22 @@ class AppsController < ApplicationController
 		elsif params[:page] == '5'
 			render 'edit-5'
 		end
+	end
+
+	def status
+		@user = current_user
+		@app = @user.app
+	end
+
+	def submit
+		@user = current_user
+		@app = @user.app
+
+		@app.submitted = true
+		@app.save
+
+		flash[:success] = "Application submitted! Congrats."
+		redirect_to root_path
 	end
 
 	def update
@@ -86,5 +104,17 @@ class AppsController < ApplicationController
 
 		def admin_user
 			redirect_to(root_path) unless current_user.admin?
+		end
+
+		def submitted
+			if current_user.app.submitted?
+				redirect_to(root_path)
+			end
+		end
+
+		def not_submitted
+			unless current_user.app.submitted?
+				redirect_to(root_path)
+			end
 		end
 end

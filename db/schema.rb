@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203030627) do
+ActiveRecord::Schema.define(version: 20150309000632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150203030627) do
     t.integer  "toefl_score"
     t.string   "recommender_email"
     t.integer  "applicant_id"
+    t.boolean  "submitted",               default: false
   end
 
   add_index "apps", ["applicant_id"], name: "index_apps_on_applicant_id", using: :btree
