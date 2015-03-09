@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'dates' => 'welcome#dates'
   get 'financial' => 'welcome#financial'
   get 'faq' => 'welcome#faq'
+  get 'app_faq' => 'welcome#app_faq'
   get 'apply' => 'welcome#apply'
   get 'signup' => 'applicants#new'
   get    'login'   => 'sessions#new'

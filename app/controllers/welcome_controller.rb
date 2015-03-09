@@ -23,6 +23,9 @@ class WelcomeController < ApplicationController
 	def faq
 	end
 
+	def app_faq
+	end
+
 	def apply
 	end
 

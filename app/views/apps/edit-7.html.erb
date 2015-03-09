@@ -1,0 +1,29 @@
+<% provide(:title, "YMUNI Application") %>
+
+<div class="row" id="grad">
+    <%= render 'shared/quick_links' %>
+
+    <div class="col-md-6" > <!--col-md-offset-3">-->
+        <h1 id="white-text">YMUNI Application</h1>
+        <h2 id="white-text">Part 7 - Finish</h2><br>
+
+        <div class="jumbotron">
+            <h1>You made it!</h1><br>
+            <p>Great job. Click submit below if you are finished.</p><br>
+            <%= link_to("Submit Application", submit_path, method: :post, data: { confirm: "Are you sure you want to submit your application?" }, class: 'btn btn-primary') %>
+        </div>
+        <nav>
+          <ul class="pagination pagination-lg pagination-centered">
+            <li><%= link_to '<<', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '1'}) %></li>
+            <li><%= link_to '1', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '1'}) %></li>
+            <li><%= link_to '2', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '2'}) %></li>
+            <li><%= link_to '3', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '3'}) %></li>
+            <li><%= link_to '4', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '4'}) %></li>
+            <li><%= link_to '5', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '5'}) %></li>
+            <li><%= link_to '6', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '6'}) %></li>
+	        <li class="active"><%= link_to '7', edit_applicant_app_path(current_user, current_user.app, :params => {:page => '7'}) %></li>
+            <li><%= link_to '>>', '#' %></li>
+          </ul>
+        </nav>
+    </div>
+</div>

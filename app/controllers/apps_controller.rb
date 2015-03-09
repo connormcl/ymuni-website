@@ -27,6 +27,10 @@ class AppsController < ApplicationController
 			render 'edit-4'
 		elsif params[:page] == '5'
 			render 'edit-5'
+		elsif params[:page] == '6'
+			render 'edit-6'
+		elsif params[:page] == '7'
+			render 'edit-7'
 		end
 	end
 
@@ -76,6 +80,10 @@ class AppsController < ApplicationController
 			render 'edit-4'
 		elsif params[:page] == '5'
 			render 'edit-5'
+		elsif params[:page] == '6'
+			render 'edit-6'
+		elsif params[:page] == '7'
+			render 'edit-7'
 		else
 			render 'edit'
 		end
@@ -86,7 +94,7 @@ class AppsController < ApplicationController
 			params.require(:app).permit(:first_name, :middle_name, :last_name, :address, :city, :state, :zip_code, :country, :date_of_birth, 
 				:ethnicity, :school_name, :school_address, :school_city, :school_state, :school_zip_code, :school_country, :grade_level, :email, :phone_number,
 				:personal_statement, :supplemental_question_1, :supplemental_question_2, :supplemental_question_3, :supplemental_question_4,
-				:supplemental_question_5, :gpa, :sat_score, :act_score, :toefl_score, :recommender_email)
+				:supplemental_question_5, :gpa, :sat_score, :act_score, :toefl_score, :recommender_email, :additional_comments)
 		end
 
 		def logged_in_user
