@@ -34,6 +34,17 @@ class ApplicantsController < ApplicationController
 		redirect_to admin_panel_path
 	end
 
+	def show_resume
+		@applicant = Applicant.find(params[:applicant_id])
+		send_file(@applicant.resume.path, :disposition => 'inline')
+ 	end
+
+ 	def show_recommendation
+		@applicant = Applicant.find(params[:applicant_id])
+		send_file(@applicant.recommendation.path, :disposition => 'inline')
+ 	end
+
+
 	# def update
 	# 	@user = Applicant.find(params[:id])
 	# 	#@user.resume = params[:resume]

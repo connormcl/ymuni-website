@@ -1,112 +1,160 @@
 <% provide(:title, "YMUNI Application") %>
 
 <div class="row" id="grad">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-10 col-md-offset-1">
   	<%= render 'shared/error_messages' %>
 
     <h1 id="white-text"><%= @app.first_name %>'s YMUNI Application</h1><br>
 
     <div class="jumbotron">
         <h2>Part 1 - General Information</h2><br>
-		    <p>
-				<strong>First name:</strong>
-				<%= @app.first_name %>
-			</p>
-			<p>
-				<strong>Middle name:</strong>
-				<%= @app.middle_name %>
-			</p>
-			<p>
-				<strong>Last name:</strong>
-				<%= @app.last_name %>
-			</p>
-			<p>
-				<strong>Address:</strong>
-				<%= @app.address %>
-			</p>
-			<p>
-				<strong>City:</strong>
-				<%= @app.city %>
-			</p>
-			<p>
-				<strong>State:</strong>
-				<%= @app.state %>
-			</p>
-			<p>
-				<strong>Zip Code:</strong>
-				<%= @app.zip_code %>
-			</p>
-			<p>
-				<strong>Country:</strong>
-				<%= @app.country %>
-			</p>
-			<p>
-				<strong>Date of Birth:</strong>
-				<%= @app.date_of_birth %>
-			</p>
-			<p>
-				<strong>Ethnicity:</strong>
-				<%= @app.ethnicity %>
-			</p>
-			<p>
-				<strong>School Name:</strong>
-				<%= @app.school_name %>
-			</p>
-			<p>
-				<strong>School Address:</strong>
-				<%= @app.school_address %>
-			</p>
-			<p>
-				<strong>School City:</strong>
-				<%= @app.school_city %>
-			</p>
-			<p>
-				<strong>School State:</strong>
-				<%= @app.school_state %>
-			</p>
-			<p>
-				<strong>School Zip Code:</strong>
-				<%= @app.school_zip_code %>
-			</p>
-			<p>
-				<strong>School Country:</strong>
-				<%= @app.school_country %>
-			</p>
-			<p>
-				<strong>Grade Level:</strong>
-				<%= @app.grade_level %>
-			</p>
+	    <p>
+			<strong>First name:</strong>
+			<%= @app.first_name %>
+		</p>
+		<p>
+			<strong>Middle name:</strong>
+			<%= @app.middle_name %>
+		</p>
+		<p>
+			<strong>Last name:</strong>
+			<%= @app.last_name %>
+		</p>
+		<p>
+			<strong>Address:</strong>
+			<%= @app.address %>
+		</p>
+		<p>
+			<strong>City:</strong>
+			<%= @app.city %>
+		</p>
+		<p>
+			<strong>State:</strong>
+			<%= @app.state %>
+		</p>
+		<p>
+			<strong>Zip Code:</strong>
+			<%= @app.zip_code %>
+		</p>
+		<p>
+			<strong>Country:</strong>
+			<%= @app.country %>
+		</p>
+		<p>
+			<strong>Date of Birth:</strong>
+			<%= @app.date_of_birth %>
+		</p>
+		<p>
+			<strong>Ethnicity:</strong>
+			<%= @app.ethnicity %>
+		</p>
+		<p>
+			<strong>School Name:</strong>
+			<%= @app.school_name %>
+		</p>
+		<p>
+			<strong>School Address:</strong>
+			<%= @app.school_address %>
+		</p>
+		<p>
+			<strong>School City:</strong>
+			<%= @app.school_city %>
+		</p>
+		<p>
+			<strong>School State:</strong>
+			<%= @app.school_state %>
+		</p>
+		<p>
+			<strong>School Zip Code:</strong>
+			<%= @app.school_zip_code %>
+		</p>
+		<p>
+			<strong>School Country:</strong>
+			<%= @app.school_country %>
+		</p>
+		<p>
+			<strong>Grade Level:</strong>
+			<%= @app.grade_level %>
+		</p>
 	</div>
 
 	<div class="jumbotron">
         <h2>Part 2 - Essays</h2><br>
-		    <p>
-				<strong>Personal Statement:</strong>
-				<%= @app.personal_statement %>
-			</p>
-			<p>
-				<strong>Supplemental Question 1:</strong>
-				<%= @app.supplemental_question_1 %>
-			</p>
-			<p>
-				<strong>Supplemental Question 2:</strong>
-				<%= @app.supplemental_question_2 %>
-			</p>
-			<p>
-				<strong>Supplemental Question 3:</strong>
-				<%= @app.supplemental_question_3 %>
-			</p>
-			<p>
-				<strong>Supplemental Question 4:</strong>
-				<%= @app.supplemental_question_4 %>
-			</p>
-			<p>
-				<strong>Supplemental Question 5:</strong>
-				<%= @app.supplemental_question_5 %>
-			</p>    
+	    <p>
+			<strong>Personal Statement:</strong>
+			<%= @app.personal_statement %>
+		</p>
+		<p>
+			<strong>Supplemental Question 1:</strong>
+			<%= @app.supplemental_question_1 %>
+		</p>
+		<p>
+			<strong>Supplemental Question 2:</strong>
+			<%= @app.supplemental_question_2 %>
+		</p>
+		<p>
+			<strong>Supplemental Question 3:</strong>
+			<%= @app.supplemental_question_3 %>
+		</p>
+		<p>
+			<strong>Supplemental Question 4:</strong>
+			<%= @app.supplemental_question_4 %>
+		</p>
+		<p>
+			<strong>Supplemental Question 5:</strong>
+			<%= @app.supplemental_question_5 %>
+		</p>    
 	</div>
 
-    
-    <h2>Part 3 - Letters of Recommendation</h2>        
+	<div class="jumbotron">
+        <h2>Part 3 - Letter of Recommendation</h2><br>
+		
+		<p>
+			<% if @user.recommendation.path != nil %>	
+				<%= link_to("Download letter of recommendation", recommendation_path) %>
+			<% else %>
+				<h3>No recommendation submitted!</h3>
+			<% end %>
+		</p>
+	</div>
+
+	<div class="jumbotron">
+        <h2>Part 4 - Resume</h2><br>
+		
+		<p>
+			<% if @user.resume.path != nil %>	
+				<%= link_to("Download resume", resume_path) %>
+			<% else %>
+				<h3>No resume submitted!</h3>
+			<% end %>
+		</p>
+	</div>
+
+	<div class="jumbotron">
+        <h2>Part 5 - GPA and Scores</h2><br>
+	    <p>
+			<strong>GPA:</strong>
+			<%= @app.gpa %>
+		</p>
+		<p>
+			<strong>SAT Score:</strong>
+			<%= @app.sat_score %>
+		</p>
+		<p>
+			<strong>ACT Score:</strong>
+			<%= @app.act_score %>
+		</p>
+		<p>
+			<strong>TOEFL Score:</strong>
+			<%= @app.toefl_score %>
+		</p>
+	</div>
+
+	<div class="jumbotron">
+        <h2>Part 6 - Additional Comments</h2><br>
+	    <p>
+			<%= @app.additional_comments %>
+		</p>
+	</div>
   </div>
 </div>

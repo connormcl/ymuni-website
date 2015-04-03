@@ -1,11 +1,12 @@
 <div class="row" id="grad">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
         <h1 id="white-text">Listing applicants</h1>
 
         <table class="table table-hover table-condensed">
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Submitted?</th>
             <th></th>
             <th></th>
           </tr>
@@ -14,6 +15,7 @@
               <tr>
                 <td><%= applicant.first_name %> <%= applicant.last_name %></td>
                 <td><%= applicant.email %></td>
+                <td><%= applicant.app.submitted %></td>
                 <td><%= link_to 'View Application', applicant_app_path(applicant, applicant.app), class: 'btn btn-info' %></td>
                 <td><%= link_to 'Delete', applicant, method: :delete, data: { confirm: "Are you sure you want to delete this applicant?" }, class: 'btn btn-danger' %></td>
               </tr>

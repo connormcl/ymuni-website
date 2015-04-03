@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   post 'users/email_all' => 'users#email_all'
   post 'submit' => 'apps#submit'
 
+  get 'applicants/:applicant_id/resume' => 'applicants#show_resume', as: 'resume'
+  get 'applicants/:applicant_id/recommendation' => 'applicants#show_recommendation', 
+        as: 'recommendation'
+
   resources :users
 
   resources :applicants do
