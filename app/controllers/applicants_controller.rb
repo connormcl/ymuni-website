@@ -36,12 +36,12 @@ class ApplicantsController < ApplicationController
 
 	def show_resume
 		@applicant = Applicant.find(params[:applicant_id])
-		send_file(@applicant.resume.path, :disposition => 'inline')
+		send_file(@applicant.resume.path)
  	end
 
  	def show_recommendation
 		@applicant = Applicant.find(params[:applicant_id])
-		send_file(@applicant.recommendation.path, :disposition => 'inline')
+		send_file(@applicant.recommendation.path)
  	end
 
 
