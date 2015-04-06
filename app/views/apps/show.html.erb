@@ -122,8 +122,6 @@
         <h2>Part 4 - Resume</h2><br>
 		
 		<p>
-			Root: 
-			<%= Rails.root %>
 			<% if @user.resume.path != nil %>	
 				<%= link_to("Download resume", resume_path) %>
 			<% else %>
