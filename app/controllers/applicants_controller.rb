@@ -34,15 +34,19 @@ class ApplicantsController < ApplicationController
 		redirect_to admin_panel_path
 	end
 
+	DOWNLOAD_PATH = File.join(Rails.root, "public")
+
 	def show_resume
 		@applicant = Applicant.find(params[:applicant_id])
 		send_file(Rails.root.join(@applicant.resume.path))
+		#send_file(File.join(DOWNLOAD_PATH, "#{@applicant.resume.path}"))
 		#send_file(@applicant.resume.path)
  	end
 
  	def show_recommendation
 		@applicant = Applicant.find(params[:applicant_id])
 		send_file(Rails.root.join(@applicant.recommendation.path))
+		#send_file(File.join(DOWNLOAD_PATH, "#{@applicant.recommendation.path}"))
 		#send_file(@applicant.recommendation.path)
  	end
 

@@ -110,7 +110,7 @@
         <h2>Part 3 - Letter of Recommendation</h2><br>
 		
 		<p>
-			<% if @user.recommendation.path != nil %>	
+			<% if File.exists?("#{@user.recommendation.path}") %>
 				<%= link_to("Download letter of recommendation", recommendation_path) %>
 			<% else %>
 				<h3>No recommendation submitted!</h3>
@@ -122,7 +122,8 @@
         <h2>Part 4 - Resume</h2><br>
 		
 		<p>
-			<% if @user.resume.path != nil %>	
+			<!--<%= "#{@user.resume.path}" %>-->
+			<% if File.exists?("#{@user.resume.path}") %>
 				<%= link_to("Download resume", resume_path) %>
 			<% else %>
 				<h3>No resume submitted!</h3>
