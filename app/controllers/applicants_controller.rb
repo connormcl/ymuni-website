@@ -110,7 +110,7 @@ class ApplicantsController < ApplicationController
 	end
 
 	def index
-		@applicants = Applicant.all
+		@applicants = Applicant.all.order(:id)
 	end
 
 	def destroy

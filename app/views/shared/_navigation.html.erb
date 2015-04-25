@@ -11,11 +11,6 @@
                     <ul class="dropdown-menu" role="menu">
                         <li id="yale-new-roman"><%= link_to 'Our Vision', vision_path %></li>
                         <li id="yale-new-roman"><%= link_to 'Our Curriculum', curriculum_path %></li>
-                        <!--<li id="yale-new-roman"><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li id="yale-new-roman"><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li id="yale-new-roman"><a href="#">One more separated link</a></li>-->
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -42,11 +37,10 @@
                                 <% end %>
             				<% end %>
             				<li id="yale-new-roman"><%= link_to "Settings", edit_user_path(current_user) %></li>
-            				<!--<li id="yale-new-roman"><%= link_to 'Profile', current_user %></li>-->
-                            <li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>
+                            <!--<li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>-->
             				<li id="yale-new-roman"><%= link_to 'Log out', logout_path, method: :delete %></li>
         			 <% else %>
-                            <li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>
+                            <!--<li id="yale-new-roman"><%= link_to 'Join Our Team', join_our_team_path %></li>-->
                             <li id="yale-new-roman"><%= link_to 'Apply', apply_path %></li>
         		            <li id="yale-new-roman"><%= link_to 'Login', login_path %></li>
         			 <% end %>
