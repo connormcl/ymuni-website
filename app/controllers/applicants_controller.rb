@@ -109,8 +109,42 @@ class ApplicantsController < ApplicationController
 		end
 	end
 
+	# def index
+	# 	@applicants = Applicant.order(:id)
+	# end
+
 	def index
-		@applicants = Applicant.all.order(:id)
+		if params[:sort_dir] == 'true'
+			@last_dir = true
+		else
+			@last_dir = false
+		end
+		if "#{params[:sort_param]}" != "submitted"
+			# @applicants = Applicant.order("#{params[:sort_param]} #{params[:sort_dir]}")
+			if @last_dir
+				@applicants = Applicant.order("#{params[:sort_param]} ASC")
+			else
+				@applicants = Applicant.order("#{params[:sort_param]} DESC")
+			end
+		else
+			all_applicants = Applicant.all
+			submitted = Array.new
+			unsubmitted = Array.new
+			all_applicants.each do |a|
+				if a.app.submitted
+					submitted.push(a)
+				else
+					unsubmitted.push(a)
+				end
+			end
+			if @last_dir
+				(@applicants = submitted).flatten!
+				(@applicants << unsubmitted).flatten!
+			else
+				(@applicants = unsubmitted).flatten!
+				(@applicants << submitted).flatten!
+			end
+		end
 	end
 
 	def destroy

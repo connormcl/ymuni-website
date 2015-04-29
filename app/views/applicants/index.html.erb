@@ -4,10 +4,10 @@
 
         <table class="table table-hover table-condensed">
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Submitted?</th>
+            <th><%= link_to 'ID', applicants_path(sort_param: "id", sort_dir: !@last_dir) %></th>
+            <th><%= link_to 'Name', applicants_path(sort_param: "first_name", sort_dir: !@last_dir) %></th>
+            <th><%= link_to 'Email', applicants_path(sort_param: "email", sort_dir: !@last_dir) %></th>
+            <th><%= link_to 'Submitted?', applicants_path(sort_param: "submitted", sort_dir: !@last_dir) %></th>
             <th></th>
             <th></th>
           </tr>

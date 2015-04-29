@@ -25,7 +25,7 @@
                 <li id="yale-new-roman"><%= link_to 'Our Team', team_path %></li>
           			<% if logged_in? %>
             				<% if admin? %>
-              					<li id="yale-new-roman"><%= link_to 'Manage applicants', applicants_path %></li>
+              					<li id="yale-new-roman"><%= link_to 'Manage applicants', applicants_path(sort_param: "id", sort_dir: true) %></li>
               					<li id="yale-new-roman"><%= link_to 'Admin Dashboard', admin_panel_path %></li>
             				<% elsif current_user.type == 'Recommender' %>
                                 <li id="yale-new-roman"><%= link_to 'Recommender Dashboard', recommender_dashboard_path %></li>
